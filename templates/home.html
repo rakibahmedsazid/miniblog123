@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class='container'>
+        <h1>Home Page</h1>
+        <div>
+            {% for post in posts %}
+                <div>
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="{{post.img.url}}" class="rounded-pill img-fluid  rounded-start  " alt="post_img">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">{{post.title}}</h5>
+                              <p class="card-text">{{post.desc}}</p>
+                              <p class="card-text"><small class="text-body-secondary">{{post.time}} / {{post.date}} </small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

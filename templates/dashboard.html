@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class='container'>
+        <div class='mt-2'><h1>Dashboard Page</h1></div>
+        <div class='text-center'>
+            <a href="{% url 'addpage' %}" class="btn btn-outline-success">Add list</a>
+        </div>
+        <div class='mt-5'>
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr>
+                        <th class='col'>SL</th>
+                        <th class='col-2'>Photo</th>
+                        <th class='col-2'>Title</th>
+                        <th  class='col-5'>Descriptions</th>
+                        <th class='col-2'>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>
+                            <img class='container-fluid' src="{{post.img.url}}" alt="">
+                        </td>
+                        <td>{{post.title}}</td>
+                        <td>{{post.desc}}</td>
+                        <td>
+                            <a href="{% url 'editpage' post.id %}" class="btn btn-outline-warning ">Edit</a>
+                            <a href="{% url 'delete' post.id %}" class="btn btn-outline-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock content %}

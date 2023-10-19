@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class='container'>
+        <h1>Dashboard/Edit Post</h1>
+        <div class="mt-5">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input class='btn btn-outline-success' type="submit" value="Update">
+                <a href="{% url "dashboard" %}" class="btn btn-outline-danger"> Cancel</a>
+            </form>
+        </div>
+    </section>
+{% endblock content %}
